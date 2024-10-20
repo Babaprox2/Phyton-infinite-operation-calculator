@@ -1,11 +1,16 @@
+
 hesap = input("enter a process: ")
 hesap = hesap.split()
-#bulu == **
+
+#bulu == ** 
 #bulci == -
 #bult == +
 #buly == %
 #bulb == ÷
 #bulc == x
+#if you want to turn float into str or int you can go to the 68 and 87 also if you dont want the ([]) in the conclusion 
+#you can delete that things in the 68 and 87.
+
 try:
   bulu = hesap.index("**")
 except ValueError:
@@ -63,11 +68,11 @@ while i < len(hesap):
            bulu1 = float(hesap[i - 1])
            bulu2 = float(hesap[i + 1])
            sonuc = bulu1 ** bulu2
-      hesap[i - 1: i + 2] = [str(sonuc)]
+      hesap[i - 1: i + 2] = [float(sonuc)]
       i -= 1
     else:
           i += 1
-
+i = 0
 while i < len(hesap):
      if hesap[i] == "+" or hesap[i] == "-":
          if hesap[i] == "+":
@@ -81,11 +86,10 @@ while i < len(hesap):
        
           bulci1 = float(hesap[i - 1])
           bulci2 = float(hesap[i + 1])
-          sonuc = bulci1 + bulci2
-         hesap[i - 1: i + 2] = [str(sonuc)]
+          sonuc = bulci1 - bulci2
+         hesap[i - 1: i + 2] = [float(sonuc)]
          i -= 1
      else:
-             i += 1
+          i += 1
 
-
-print(hesap)
+print(hesap) 
