@@ -1,0 +1,91 @@
+hesap = input("enter a process: ")
+hesap = hesap.split()
+#bulu == **
+#bulci == -
+#bult == +
+#buly == %
+#bulb == ÷
+#bulc == x
+try:
+  bulu = hesap.index("**")
+except ValueError:
+  bulu = False
+
+try:
+  bulci = hesap.index("-")
+except ValueError:
+  bulci = False
+  
+try:
+  bult = hesap.index("+")
+except ValueError:
+  bult = False  
+
+try:
+ buly = hesap.index("%")
+except ValueError:
+ buly = False
+
+try:
+ bulc = hesap.index("x")
+except ValueError:
+ bulc = False
+ 
+try:
+ bulb = hesap.index("÷")
+except ValueError:
+ bulb = False
+ 
+i = 0
+while i < len(hesap):
+    if hesap[i] == "x" or hesap[i] == "÷" or hesap[i] == "%" or hesap[i] == "**":
+      if hesap[i] == "x":
+                     
+           bulc1 = float(hesap[i - 1])
+           bulc2 = float(hesap[i + 1])
+           sonuc = bulc1 * bulc2
+           
+           
+      elif hesap[i] == "÷":    
+          
+           bulb1 = float(hesap[i - 1])
+           bulb2 = float(hesap[i + 1])
+           sonuc = bulb1 / bulb2
+
+         
+      elif hesap[i] == "%":    
+           buly1 = float(hesap[i - 1])
+           buly2 = float(hesap[i + 1])
+           sonuc = buly1 * buly2 / 100
+
+         
+      elif hesap[i] == "**":
+           bulu1 = float(hesap[i - 1])
+           bulu2 = float(hesap[i + 1])
+           sonuc = bulu1 ** bulu2
+      hesap[i - 1: i + 2] = [str(sonuc)]
+      i -= 1
+    else:
+          i += 1
+
+while i < len(hesap):
+     if hesap[i] == "+" or hesap[i] == "-":
+         if hesap[i] == "+":
+         
+          bult1 = float(hesap[i - 1])
+          bult2 = float(hesap[i + 1])
+          sonuc = bult1 + bult2
+
+
+         elif hesap[i] == "-":
+       
+          bulci1 = float(hesap[i - 1])
+          bulci2 = float(hesap[i + 1])
+          sonuc = bulci1 + bulci2
+         hesap[i - 1: i + 2] = [str(sonuc)]
+         i -= 1
+     else:
+             i += 1
+
+
+print(hesap)
